@@ -9,14 +9,14 @@ options
   language=Java;
 }
 
-tokens
+tokeCs
 {
   TK_class
 }
 
 LCURLY : '{';
 RCURLY : '}';
-TRAÇO: '-';
+TRACO: '-';
 VIRG: ',';
 MAS: '+';
 MULT: '*';

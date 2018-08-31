@@ -47,8 +47,8 @@ class Main {
                                 type = " BOOLEANLITERAL";
                                 break;
                             case DecafLexer.HEXA:
-                                    type = " INTLITERAL";
-                                    break;
+                                type = " INTLITERAL";
+                                break;
                             }
                             System.out.println (token.getLine() + type + " " + text);
                         }
