@@ -9,14 +9,14 @@ options
   language=Java;
 }
 
-tokeCs
+tokens
 {
   TK_class
 }
 
 LCURLY : '{';
 RCURLY : '}';
-TRACO: '-';
+TRAÇO: '-';
 VIRG: ',';
 MAS: '+';
 MULT: '*';
@@ -25,6 +25,9 @@ LCOLCHE: '[';
 RCOLCHE: ']';
 OU: '||';
 DOISIGUAL: '==';
+MAISIGUAL: '+=';
+MENOSIGUAL: '-=';
+DOISPONT: ':';
 IGUAL: '=';
 DIF: '!=';
 LPARENT: '(';
@@ -34,6 +37,10 @@ COMPMENOR: '<';
 COMPMAIOR: '>';
 COMPMENORIGUAL: '<=';
 COMPMAIORIGUAL: '>=';
+PONTO: '.';
+EXCLAM: '!';
+BARRA: '/';
+PORCENT: '%';
 
 CALLOUT: 'callout';
 CLASS: 'class';
@@ -51,13 +58,14 @@ CHAR : '\'' (ESC|ASC) '\'';
 STRING : '"' (ESC|ASC)* '"';
 NUMBER : '-'? [0-9]+;
 BOOLEANLITERAL: ('false' | 'true');
-HEXA: '0x'('A'..'f' | 'a'..'f' | '0'..'9')+;
+HEXA: '0x'('A'..'F' | 'a'..'f' | '0'..'9')+;
 
 fragment ESC :  '\\' ('n'|'"'| 't'| '\\'| '\'');
 fragment ASC: [\u0020-\u0021|\u0023-\u0026|\u0028-\u005B|\u005D-\u007E];
 fragment NUMB: ('0'..'9');
 fragment MAIS: ('A'..'Z');
 fragment MINUS: ('a'..'z');
+fragment HEXALT: ('A' .. 'F'| 'a' ..'f')+;
 
 ID  : ( MAIS | MINUS | '_')(MAIS | MINUS | '_' | NUMB)*;
 WS_ : (' ' | '\n'| '\t') -> skip;
