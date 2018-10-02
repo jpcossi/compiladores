@@ -37,7 +37,6 @@ COMPMENOR: '<';
 COMPMAIOR: '>';
 COMPMENORIGUAL: '<=';
 COMPMAIORIGUAL: '>=';
-PONTO: '.';
 EXCLAM: '!';
 BARRA: '/';
 PORCENT: '%';
@@ -56,7 +55,7 @@ CONTINUE: 'continue';
 
 CHAR : '\'' (ESC|ASC) '\'';
 STRING : '"' (ESC|ASC)* '"';
-NUMBER : '-'? [0-9]+;
+NUMBER : [0-9]+;
 BOOLEANLITERAL: ('false' | 'true');
 HEXA: '0x'('A'..'F' | 'a'..'f' | '0'..'9')+;
 
