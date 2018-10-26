@@ -10,6 +10,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -138,7 +139,9 @@ class Main {
       					viewr.setScale(1.5);//scale a little
       					panel.add(viewr);
       					frame.add(panel);
-      					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                JScrollPane scroll = new JScrollPane(panel);
+                frame.add(scroll);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       					frame.setSize(600,400);
       					frame.setVisible(true);
       				}

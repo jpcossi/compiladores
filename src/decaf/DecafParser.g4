@@ -10,24 +10,27 @@ options
   tokenVocab=DecafLexer;
 }
 
+decl: type ID;
 
-program: CLASS id LCURLY field* method* RCURLY;
+var: VIRG ID;
 
-field: (type id (VIRG type id)*
-     | type id LCOLCHE int_literal RCOLCHE (VIRG LCOLCHE int_literal RCOLCHE)*)PONTVIR;
+program: CLASS ID LCURLY field* method* RCURLY;
 
-method: (type | VOID) method_name LPARENT (type id (VIRG type id)*)? RPARENT block;
+field: (type ID (VIRG decl)*
+     | type ID LCOLCHE int_literal RCOLCHE (VIRG decl LCOLCHE int_literal RCOLCHE)*)PONTVIR;
+
+method: (type | VOID) ID LPARENT (decl (VIRG decl)*)? RPARENT block;
 
 type: INT | BOOLEAN;
 
 block: LCURLY var_decl* stat* RCURLY;
 
-var_decl: (type id(type id)*) PONTVIR;
+var_decl: (type ID(var)*) PONTVIR;
 
 stat: location assign_op expr PONTVIR
                             | method_call PONTVIR
                             | IF LPARENT expr RPARENT block (ELSE block)?
-                            | FOR id IGUAL expr VIRG expr block
+                            | FOR ID IGUAL expr VIRG expr block
                             | RETURN (expr)? PONTVIR
                             | BREAK PONTVIR
                             | CONTINUE PONTVIR
@@ -35,12 +38,12 @@ stat: location assign_op expr PONTVIR
 
 assign_op: IGUAL | MAISIGUAL | MENOSIGUAL;
 
-method_name: id;
+method_name: ID;
 
 method_call: method_name LPARENT (expr(VIRG expr)*)? RPARENT
           | CALLOUT LPARENT string_literal ( VIRG callout_arg (VIRG callout_arg)*)? RPARENT;
 
-location: id | id LCOLCHE expr RCOLCHE;
+location: ID | ID LCOLCHE expr RCOLCHE;
 
 expr: location | method_call | literal | expr bin_op expr
 | TRAÇO expr
@@ -60,8 +63,6 @@ eq_op: DOISIGUAL | DIF;
 cond_op: ECOMP | OU;
 
 literal: int_literal | char_literal | bool_literal;
-
-id: ID;
 
 alpha_num: alpha | digit;
 
