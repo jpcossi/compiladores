@@ -64,14 +64,6 @@ cond_op: ECOMP | OU;
 
 literal: int_literal | char_literal | bool_literal;
 
-alpha_num: alpha | digit;
-
-alpha: MAIS;
-
-digit: NUMB;
-
-hex_digit: digit HEXALT;
-
 int_literal: decimal_literal | hex_literal;
 
 decimal_literal: NUMBER;
